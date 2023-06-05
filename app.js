@@ -5,6 +5,7 @@ const helmet = require("helmet");
 const app = express();
 
 const productRouter = require("./routes/products");
+const userRouter = require("./routes/users");
 
 // per avere risposte in json
 app.use(express.json());
@@ -14,6 +15,7 @@ app.use(helmet());
 
 //routes
 app.use("/api/products", productRouter);
+app.use("/api/users", userRouter);
 
 // on http://localhost:3000/ ottengo questo messaggio iniziale
 app.get("/", (req, res) => {
