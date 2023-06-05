@@ -1,37 +1,70 @@
+const User = require("../models/userModel");
+const asyncHandler = require("express-async-handler");
+
 // @desc Get all products
 // @route GET api/products
 // access public
-const getUsers = async (req, res) => {
-  res.status(200).json({ message: "tutti users" });
-};
+const getUsers = asyncHandler(async (req, res) => {
+  const users = await User.find();
+  res.status(200).json(users);
+});
 
 // @desc Create new product
 // @route POST api/products
 // access public
-const createUser = async (req, res) => {
-  res.status(200).json({ message: "crea user" });
-};
+const createUser = asyncHandler(async (req, res) => {
+  const { name, surname, email } = req.body;
+  if (!name || !surname || !email) {
+    res.status(400);
+    throw new Error("All required fields");
+  }
+  const user = await User.create({
+    name,
+    surname,
+    email,
+  });
+  res.status(201).json(user);
+});
 
 // @desc Get a product
 // @route GET api/products/:id
 // access public
-const getUser = async (req, res) => {
-  res.status(200).json({ message: "visualizza un user" });
-};
+const getUser = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.params.id);
+  if (!user) {
+    res.status(404);
+    throw new Error("User not found");
+  }
+  res.status(200).json(user);
+});
 
 // @desc Get all products
 // @route GET api/products
 // access public
-const updateUser = async (req, res) => {
-  res.status(200).json({ message: "update user" });
-};
+const updateUser = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.params.id);
+  if (!user) {
+    res.status(404);
+    throw new Error("User not found");
+  }
+  const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+  });
+  res.status(200).json(updatedUser);
+});
 
 // @desc Get all products
 // @route GET api/products
 // access public
-const deleteUser = async (req, res) => {
-  res.status(200).json({ message: "delete user" });
-};
+const deleteUser = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.params.id);
+  if (!user) {
+    res.status(404);
+    throw new Error("User not found");
+  }
+  await user.deleteOne();
+  res.status(200).json(user);
+});
 
 module.exports = {
   getUsers,

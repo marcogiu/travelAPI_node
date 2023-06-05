@@ -3,7 +3,6 @@ const asyncHandler = require("express-async-handler");
 
 // @desc Get all products
 // @route GET api/products
-// access public
 const getProducts = asyncHandler(async (req, res) => {
   const products = await Product.find();
   res.status(200).json(products);
@@ -11,7 +10,6 @@ const getProducts = asyncHandler(async (req, res) => {
 
 // @desc Create new product
 // @route POST api/products
-// access public
 const createProduct = asyncHandler(async (req, res) => {
   const { name } = req.body;
   if (!name) {
@@ -26,7 +24,6 @@ const createProduct = asyncHandler(async (req, res) => {
 
 // @desc Get a product
 // @route GET api/products/:id
-// access public
 const getProduct = asyncHandler(async (req, res) => {
   const product = await Product.findById(req.params.id);
   if (!product) {
@@ -36,9 +33,8 @@ const getProduct = asyncHandler(async (req, res) => {
   res.status(200).json(product);
 });
 
-// @desc Get all products
-// @route GET api/products
-// access public
+// @desc Update a product
+// @route PUT api/products/:id
 const updateProduct = asyncHandler(async (req, res) => {
   const product = await Product.findById(req.params.id);
   if (!product) {
@@ -53,9 +49,8 @@ const updateProduct = asyncHandler(async (req, res) => {
   res.status(200).json(updatedProduct);
 });
 
-// @desc Get all products
-// @route GET api/products
-// access public
+// @desc Delete a product
+// @route DELETE api/products/:id
 const deleteProduct = asyncHandler(async (req, res) => {
   const product = await Product.findById(req.params.id);
   if (!product) {
