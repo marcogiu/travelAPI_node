@@ -1,11 +1,12 @@
 const Order = require("../models/orderModel");
+const Product = require("../models/productModel");
+const User = require("../models/userModel");
+
 const asyncHandler = require("express-async-handler");
-const Joi = require("joi");
-const joiObjectid = require("joi-objectid");
 
 // visualizza tutti gli ordini
 const getOrders = asyncHandler(async (req, res) => {
-  const orders = await Order.find();
+  const orders = await Order.find().populate("Product").populate("User");
   res.status(200).json(orders);
 });
 
