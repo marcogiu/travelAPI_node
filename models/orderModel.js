@@ -1,14 +1,17 @@
 const mongoose = require("mongoose");
 
 const orderSchema = mongoose.Schema({
-  products: {
-    type: [Schema.Types.ObjectId],
+  product: {
+    type: [mongoose.Schema.Types.ObjectId],
+    required: true,
   },
-  orders: {
-    type: [Schema.types.ObjectId],
+  user: {
+    type: [mongoose.Schema.Types.ObjectId],
+    required: true,
   },
   date: {
-    type: Date,
+    type: Date, // YYYY-MM-DD
+    required: true,
   },
 });
 
