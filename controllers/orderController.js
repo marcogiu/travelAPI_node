@@ -1,12 +1,10 @@
 const Order = require("../models/orderModel");
-const Product = require("../models/productModel");
-const User = require("../models/userModel");
 
 const asyncHandler = require("express-async-handler");
 
 // visualizza tutti gli ordini
 const getOrders = asyncHandler(async (req, res) => {
-  const orders = await Order.find().populate("Product").populate("User");
+  const orders = await Order.find().populate("product user");
   res.status(200).json(orders);
 });
 
@@ -32,6 +30,7 @@ const createOrder = asyncHandler(async (req, res) => {
     user,
     date,
   });
+  await order.populate("product user");
   res.status(201).json(order);
 });
 
