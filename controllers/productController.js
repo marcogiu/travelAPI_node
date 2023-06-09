@@ -11,14 +11,7 @@ const getProducts = asyncHandler(async (req, res) => {
 // @desc Create new product
 // @route POST api/products
 const createProduct = asyncHandler(async (req, res) => {
-  const { name } = req.body;
-  if (!name) {
-    res.status(400);
-    throw new Error("Invalid");
-  }
-  const product = await Product.create({
-    name,
-  });
+  const product = await Product.create(req.body);
   res.status(201).json(product);
 });
 

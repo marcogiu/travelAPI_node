@@ -1,25 +1,22 @@
 const User = require("../models/userModel");
 const asyncHandler = require("express-async-handler");
 
-// @desc Get all products
-// @route GET api/products
-// access public
+// @desc Get all users
+// @route GET api/users
 const getUsers = asyncHandler(async (req, res) => {
   const users = await User.find();
   res.status(200).json(users);
 });
 
-// @desc Create new product
-// @route POST api/products
-// access public
+// @desc Create new user
+// @route POST api/users
 const createUser = asyncHandler(async (req, res) => {
   const user = await User.create(req.body);
   res.status(201).json(user);
 });
 
-// @desc Get a product
-// @route GET api/products/:id
-// access public
+// @desc Get a user
+// @route GET api/user/:id
 const getUser = asyncHandler(async (req, res) => {
   const user = await User.findById(req.params.id);
   if (!user) {
@@ -29,9 +26,8 @@ const getUser = asyncHandler(async (req, res) => {
   res.status(200).json(user);
 });
 
-// @desc Get all products
-// @route GET api/products
-// access public
+// @desc Update a user
+// @route PUT api/users/:id
 const updateUser = asyncHandler(async (req, res) => {
   const user = await User.findById(req.params.id);
   if (!user) {
@@ -44,9 +40,8 @@ const updateUser = asyncHandler(async (req, res) => {
   res.status(200).json(updatedUser);
 });
 
-// @desc Get all products
-// @route GET api/products
-// access public
+// @desc Delete a user
+// @route DELETE api/users/:id
 const deleteUser = asyncHandler(async (req, res) => {
   const user = await User.findById(req.params.id);
   if (!user) {
