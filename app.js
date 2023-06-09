@@ -14,6 +14,8 @@ app.use(express.json());
 // helmet per la sicurezza dell'indirizzo http
 app.use(helmet());
 
+mongoose.set("sanitizeFilter", true);
+
 //routes
 app.use("/api/products", productRouter);
 app.use("/api/users", userRouter);

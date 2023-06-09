@@ -5,20 +5,11 @@ const {
   getOrders,
   getOrder,
   createOrder,
+  updateOrder,
+  deleteOrder,
 } = require("../controllers/orderController");
 
-router.route("/").get(getOrders);
-
-router.route("/:id").get(getOrder);
-
-router.route("/").post(createOrder);
-
-router.route("/:id").put((req, res) => {
-  res.status(200).json({ message: "modifica ordine" });
-});
-
-router.route("/:id").delete((req, res) => {
-  res.status(200).json({ message: "elimina ordine" });
-});
+router.route("/").get(getOrders).post(createOrder);
+router.route("/:id").get(getOrder).put(updateOrder).delete(deleteOrder);
 
 module.exports = router;

@@ -13,16 +13,7 @@ const getUsers = asyncHandler(async (req, res) => {
 // @route POST api/products
 // access public
 const createUser = asyncHandler(async (req, res) => {
-  const { name, surname, email } = req.body;
-  if (!name || !surname || !email) {
-    res.status(400);
-    throw new Error("All required fields");
-  }
-  const user = await User.create({
-    name,
-    surname,
-    email,
-  });
+  const user = await User.create(req.body);
   res.status(201).json(user);
 });
 
