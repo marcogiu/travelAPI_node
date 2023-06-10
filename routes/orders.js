@@ -13,7 +13,7 @@ const {
 
 router.route("/").get(getOrders).post(createOrder);
 router.route("/:id").get(getOrder).put(updateOrder).delete(deleteOrder);
-router.route("/by-product/:product").get(getOrderByProduct);
+router.route("/by-product/:product_id").get(getOrderByProduct);
 router.route("/by-date/:date").get(getOrderByDate);
 
 module.exports = router;

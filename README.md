@@ -45,3 +45,142 @@ Create, if don't exist, a .env file and insert an environment variable named POR
 #### 5. Test it
 
 You can test with a client, like Postman.
+
+## :open_file_folder: Endpoints
+
+### Products
+
+You can get entire list of products with a get request:
+
+`/api/products`
+
+You can add a new product with a POST request:
+
+`/api/products`
+
+```json
+{
+  "name": "name of product" // string
+}
+```
+
+GET data for a specific product with a GET request:
+
+`/api/products/:id`
+
+Update product with a PUT request:
+
+`/api/products/:id`
+
+```json
+{
+  "name": "name of product" // string
+}
+```
+
+Delete a product with a DELETE request:
+
+`/api/products/:id`
+
+<strong>:id</strong> must be a valid product MongoDB id.
+
+### Users
+
+You can get entire list of users with a get request:
+
+`/api/users`
+
+You can add a new user with a POST request:
+
+`/api/users`
+
+```json
+{
+  "name": "name of user", // string
+  "surname": "surname of user", // string
+  "email": "email of user" // valid email format
+}
+```
+
+GET data for a specific user with a GET request:
+
+`/api/users/:id`
+
+Update user with a PUT request:
+
+`/api/users/:id`
+
+```json
+{
+  "name": "name of user", // string
+  "surname": "surname of user", // string
+  "email": "email of user" // valid email format
+}
+```
+
+Delete a user with a DELETE request:
+
+`/api/users/:id`
+
+<strong>:id</strong> must be a valid user MongoDB id.
+
+### Orders
+
+You can get entire list of orders with a get request:
+
+`/api/orders`
+
+You can add a new order with a POST request:
+
+`/api/orders`
+
+```json
+{
+  "product": ["id of product"], // array of product id
+  "user": ["id of user"], // array of user id
+  "date": "date" // valid ISO date format
+}
+```
+
+GET data for a specific order with a GET request:
+
+`/api/orders/:id`
+
+Update order with a PUT request:
+
+`/api/orders/:id`
+
+```json
+{
+  "product": ["id of product"], // array of product id
+  "user": ["id of user"], // array of user id
+  "date": "date" // valid ISO date format
+}
+```
+
+Delete a order with a DELETE request:
+
+`/api/orders/:id`
+
+<strong>:id</strong> must be a valid order MongoDB id.
+
+You can also get data for orders by product:
+
+`/api/orders/by-product/:product_id`
+
+<strong>product_id</strong> must be a valid id of a product that exist in MongoDB.
+
+You can also get data for orders by date:
+
+`/api/orders/by-date/:date`
+
+<strong>date</strong> must be a valid ISO date format.
+
+## :page_with_curl: License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+## :e-mail: Contact Me
+
+Any questions? Send me an e-mail here: giuliani.marco1998@gmail.com <br>
+You can find my Linkedin profile here: https://www.linkedin.com/in/marco-giuliani-2a20b4179/
