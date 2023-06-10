@@ -62,7 +62,7 @@ You can add a new product with a POST request:
 
 ```json
 {
-  "name": "name of product" // string
+  "name": "insert a alphanumeric string"
 }
 ```
 
@@ -76,7 +76,7 @@ Update product with a PUT request:
 
 ```json
 {
-  "name": "name of product" // string
+  "name": "insert a alphanumeric string"
 }
 ```
 
@@ -98,9 +98,9 @@ You can add a new user with a POST request:
 
 ```json
 {
-  "name": "name of user", // string
-  "surname": "surname of user", // string
-  "email": "email of user" // valid email format
+  "name": "insert a alphanumeric string",
+  "surname": "insert a alphanumeric string",
+  "email": "valid email format"
 }
 ```
 
@@ -114,9 +114,9 @@ Update user with a PUT request:
 
 ```json
 {
-  "name": "name of user", // string
-  "surname": "surname of user", // string
-  "email": "email of user" // valid email format
+  "name": "insert a alphanumeric string",
+  "surname": "insert a alphanumeric string",
+  "email": "valid email format"
 }
 ```
 
@@ -138,9 +138,9 @@ You can add a new order with a POST request:
 
 ```json
 {
-  "product": ["id of product"], // array of product id
-  "user": ["id of user"], // array of user id
-  "date": "date" // valid ISO date format
+  "product": "array of product id",
+  "user": "array of user id",
+  "date": "valid ISO date format"
 }
 ```
 
@@ -154,9 +154,9 @@ Update order with a PUT request:
 
 ```json
 {
-  "product": ["id of product"], // array of product id
-  "user": ["id of user"], // array of user id
-  "date": "date" // valid ISO date format
+  "product": "array of product id",
+  "user": "array of user id",
+  "date": "valid ISO date format"
 }
 ```
 
