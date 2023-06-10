@@ -68,7 +68,7 @@ const deleteOrder = asyncHandler(async (req, res) => {
 // @desc Get all orders with a product
 // @route GET api/orders/by-product/:productId
 const getOrderByProduct = asyncHandler(async (req, res) => {
-  const product = req.params.product;
+  const product = req.params.product_id;
   const order = await Order.find({ product: product }).populate("product user");
   if (!order) {
     res.status(404);
