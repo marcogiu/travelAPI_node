@@ -1,5 +1,7 @@
 # :airplane: TravelAPI
 
+Rest API for travel agency.
+
 ## :question: Why
 
 Final project for S2I Node.js course.
