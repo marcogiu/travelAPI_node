@@ -184,5 +184,5 @@ You can also get data for orders by date:
 
 ## :e-mail: Contact Me
 
-Any questions? Send me an e-mail here: giuliani.marco1998@gmail.com <br>
-You can find my Linkedin profile here: https://www.linkedin.com/in/marco-giuliani-2a20b4179/
+Send me a email to: giuliani.marco1998@gmail.com <br>
+My Linkedin profile here: https://www.linkedin.com/in/marco-giuliani-2a20b4179/
